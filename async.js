@@ -78,8 +78,20 @@ Promise.all(urls.map(url=>{
 
     // Synthatic sugar
     async function fetchUser(){
+
       const resp= await fetch( 'https://jsonplaceholder.typicode.com/users')
       const data =await resp.json()
-      console.log(data)
+      console.log(data)  
     }
     fetchUser()
+
+    const getData=async function(){ 
+        try {
+            const [users, post, albums]=await Promise.all(urls.map(url=>fetch(url).then(resp=>resp.json())))
+            users.forEach(user=>console.log(user))
+    } catch (error) {
+        console.log(error, 'Ooops')
+    }
+       
+    }
+    
