@@ -94,4 +94,38 @@ Promise.all(urls.map(url=>{
     }
        
     }
+
+    // ES20
+    const animals={
+        tiger:23,
+        lion:34,
+        monkey:4,
+        bird:49
+    }
+   
+
+    function objectSpread(p1,p2,p3){
+        console.log(p1)
+        console.log(p2)
+        console.log(p3)
+    }
+    const {...tiger, ...lion, ...rest}=animals
+    objectSpread(tiger, lion,rest)
     
+    // For await of
+     const loopThroughUrl=url=>{
+         for(url of urls){
+             console.log(url)
+         }
+     }
+     loopThroughUrl(urls)
+
+     const getData2=async function(){
+         const arrayOfPromises=urls.map(url=>{
+             fetch(url)
+         })
+         for await(let request of arrayOfPromises){
+             const data= await request.json()
+             console.log(data)
+         }
+     }
