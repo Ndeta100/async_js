@@ -61,3 +61,25 @@ Promise.all(urls.map(url=>{
     console.log(results[2])
 }).catch(err=>console.log(err
     ))
+
+    // Es8
+    async function playerStart(){
+        const firstMove=await movePlayer(100, 'left')
+        await movePlayer(400,'left')
+        await movePlayer(500,'right')
+        await movePlayer(900,'left')
+        await movePlayer(400,'right')
+
+    }
+
+    function movePlayer(num, position){
+        return
+    }
+
+    // Synthatic sugar
+    async function fetchUser(){
+      const resp= await fetch( 'https://jsonplaceholder.typicode.com/users')
+      const data =await resp.json()
+      console.log(data)
+    }
+    fetchUser()
